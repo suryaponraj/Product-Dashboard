@@ -111,7 +111,8 @@ width: 40px !important;
   }
 
 body {
-    background-color: #DDDDDD;
+    /* background-image: linear-gradient(#a1a9e3, rgb(240, 240, 180)); */
+    background-color: rgb(240, 240, 180);
     width:100vw;
 }
 
@@ -120,9 +121,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: 'Montserrat',sans-serif;
+    font-family: cursive;
     /* justify-content: center; */
-    background-color: #000000;
+    background-color: rgb(255, 108, 243); /* For browsers that do not support gradients */
+  background-image: linear-gradient(rgb(241, 111, 209), rgb(172, 176, 198));
+    /* background-color: #000000; */
     padding:50px;
     padding-right:80px;
     border-radius: 30px;
@@ -130,6 +133,7 @@ body {
 }
 .dashboard-page{
     display: flex;
+    background-image: linear-gradient(-90deg,#090e38, rgb(155, 66, 142));
     padding: 30px;
     background-color: #DDDDDD;    
     
@@ -147,7 +151,8 @@ body {
     gap: 75px;
     padding: 27px 10px 34px 28px;
     border-radius: 25px;
-    background: #DDEFE0;
+    background: #9ce3c3;
+    background-image: linear-gradient(#9ce3c3, rgb(240, 240, 180));
 }
 .card1-content {
     display: flex;
@@ -172,8 +177,10 @@ body {
     gap: 75px;
     padding: 27px 10px 34px 28px;
     border-radius: 25px;
-    background: #F4ECDD;
+    background: #b3d478;
+    background-image: linear-gradient(#b3d478, rgb(240, 240, 180));
 }
+
 .card2-content {
     display: flex;
     flex-direction: column;
@@ -192,7 +199,8 @@ body {
     gap: 118px;
     padding: 27px 10px 34px 28px;
     border-radius: 25px;
-    background: #EFDADA;
+    background: #f19f9f;
+    background-image: linear-gradient(#f19f9f, rgb(240, 240, 180));
 }
 .card3-content {
     display: flex;
@@ -212,7 +220,8 @@ body {
     gap: 100px;
     padding: 27px 10px 34px 28px;
     border-radius: 25px;
-    background: #DEE0EF;
+    background: #a1a9e3;
+    background-image: linear-gradient(#a1a9e3, rgb(240, 240, 180));
 }
 .card4-content {
     display: flex;
@@ -260,9 +269,10 @@ body {
     gap:20px;
 }
 .dash-RB {
-    font-size:24px;
-    font-weight:700;
-    font-family:'Montserrat',sans-serif
+    font-size: 40px;
+    font-weight: 700;
+    font-family: cursive;
+    color: white;
 }
 
 .contents
@@ -514,7 +524,7 @@ form {
     gap: 8px;
 }
 .parent-class .custom-google-login1 {
-    background-color: black !important;
+    background-color:rgb(255 108 243 / 2%)!important;
     color: white !important;
     font-size: 18px !important;
     text-align: center !important;
@@ -523,7 +533,7 @@ form {
     border-radius: -17px !important;
     /* background: none !important; */
     border: 0px !important;
-    font-family: "Montserrat", sans-serif !important;
+    font-family: cursive !important;
     cursor: pointer !important;
     margin-top: 32px !important;
     padding-left: 10px !important;

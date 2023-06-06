@@ -37,14 +37,14 @@ function Dashboard(props) {
   const [lineData4, setlineData4] = useState([]);
   const LineDatas = [];
   const LineDataLabels = [
-    "Week1",
-    "Week2",
-    "Week3",
-    "Week4",
-    "Week5",
-    "Week6",
-    "Week7",
-    "Week8",
+    "1000",
+    "2000",
+    "3000",
+    "4000",
+    "5000",
+    "6000",
+    "7000",
+    "8000",
   ];
   useEffect(() => {
     axios
@@ -89,7 +89,7 @@ function Dashboard(props) {
         setlineData2(filteredData2);
         const filteredData3 = response.data
           .filter((country) =>
-            ["European Union", "Armenia", "Austria"].includes(country.region)
+            ["Asia", "Europe", "Africa"].includes(country.region)
           )
           .map((country) => ({
             name: country.name,
@@ -97,19 +97,19 @@ function Dashboard(props) {
             area: country.area,
           }))
           .sort((a, b) => 10000 - a.population)
-          .slice(1, 7);
+          .slice(10, 15);
         setlineData3(filteredData3);
         const filteredData4 = response.data
           .filter((country) =>
-            ["European Union", "Armenia", "Austria"].includes(country.region)
+            ["Asia", "Europe", "Africa"].includes(country.region)
           )
           .map((country) => ({
             name: country.name,
             population: country.population,
             area: country.area,
           }))
-          .sort((a, b) => 10000 - a.population)
-          .slice(1, 7);
+          .sort((a, b) => 1000 - a.population)
+          .slice(16, 25);
         setlineData4(filteredData4);
         LineDatas.push(filteredData1);
         LineDatas.push(filteredData2);
@@ -152,11 +152,35 @@ function Dashboard(props) {
     },
     
 
-    colors: ["#98D89E", "#EE8484", "#F6DC7D", "#EF9484"],
+    colors: [ "#c966cc","#F6DC7D","#EE8484" , "#98D89E"],
     series: pieData.map((country) => country.population),
     labels: ["Himalayas", "Mama Earth ", "Dove" ,"Attitude"],
     //pieData.map(country => country.name)
   };
+  const Baroptions={
+    series: [{
+      data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+    }],
+      chart: {
+      type: 'bar',
+      height: 350
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+      }
+    },
+    
+    dataLabels: {
+      enabled: true
+    },
+    xaxis: {
+      categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+        'United States', 'China', 'Germany'
+      ],
+    }
+  }
 
   const data = {
     series: [
@@ -247,7 +271,7 @@ function Dashboard(props) {
         width: 3,
         curve: "smooth",
       },
-      colors: ["#E9A0A0", "#9BDD7C"],
+      colors: ["#c966cc","#F6DC7D","#EE8484" , "#98D89E"],
     },
   };
   const navigate=useNavigate();
@@ -260,12 +284,12 @@ function Dashboard(props) {
     <div className="dashboard-page">
       <div className="left-bar">
         <div className="left-top-content">
-          <div className="heading1">Board.</div>
+          <div className="heading1">Dashboard</div>
           <div className="dashboard-LB">
             <div className="icon">
             <Dash />
             </div>
-            <div className="details">Dashboard</div>
+            <div className="details">Product Overview</div>
           </div>
           <div className="contents">
           <div className="icon">   <Transactions /></div>
@@ -295,28 +319,15 @@ function Dashboard(props) {
           )}
         ></GoogleLogout></div>
         </div>
-        <div className="left-bottom-content">
-          
-          <div className="contents1">Help</div>
-          <div className="contents1">Contact Us</div>
-        </div>
       </div>
       <div className="right-bar">
         <div className="top-bar-box">
-          <p className="dash-RB">Dashboard</p>
-          <div className="see-all1">
-            <div className="notification">
-              <Notifications />
-            </div>
-            <div className="profile" >  
-              <Profile />
-            </div>
-          </div>
+          <p className="dash-RB">Product Overview</p>
         </div>
         <div className="cards-container">
           <div className="card1">
             <div className="card1-content">
-              <div className="cards-heading">Total Revenues</div>
+              <div className="cards-heading">Total Purchases</div>
               <div className="card1-values">$2,129,430</div>
             </div>
             <div className="icon-card">
@@ -325,8 +336,8 @@ function Dashboard(props) {
           </div>
           <div className="card2">
             <div className="card2-content">
-              <div className="cards-heading">Total Transactions</div>
-              <div className="card2-values">1,520</div>
+              <div className="cards-heading">Average Buys</div>
+              <div className="card2-values">9,345</div>
             </div>
             <div className="icon-card">
               <Total_Transactions />
@@ -335,7 +346,7 @@ function Dashboard(props) {
           <div className="card3">
             <div className="card3-content">
               <div className="cards-heading">Total Likes</div>
-              <div className="card3-values">9,721</div>
+              <div className="card3-values">98.9%</div>
             </div>
             <div className="icon-card">
               <Total_Likes />
@@ -344,7 +355,7 @@ function Dashboard(props) {
           <div className="card4">
             <div className="card3-content">
               <div className="cards-heading">Total Users</div>
-              <div className="card3-values">892</div>
+              <div className="card3-values">80,92,000</div>
             </div>
             <div className="icon-card">
               <Total_Users />
@@ -354,21 +365,7 @@ function Dashboard(props) {
         <div>
           <FilterTableComponent/>
         </div>
-        <div className="line-chart-container">
-          <div className="activities">Activities</div>
-          <div className="calender">
-            May - June 2021{" "}
-            <div className="Darrow">
-              <Darrow />
-            </div>
-          </div>
-          <Chart
-            options={data.options}
-            series={data.series}
-            type="line"
-            height={350}
-          />
-        </div>
+       
         <div className="chart-containers">
           <div className="pie-chart-container1">
             <div className="top-bar-box">
@@ -386,36 +383,43 @@ function Dashboard(props) {
               options={Pieoptions}
               series={Pieoptions.series}
               type="pie"
-              height="200"
-              width="230"
+              height="280"
+              width="260"
             />
             </div>
             <div className='pie-legends'>
               <div className='legend-space'>
               <div className='legend-1'>
                 <div><Green/></div>
-                <div className='legend-name'>Basic Tees </div></div>
+                <div className='legend-name'>Himalayas </div></div>
                 <div className='percentage'>45.9%</div>
                 </div>
                 <div className='legend-space'>
               <div className='legend-2'>
                 <div><Yellow/></div>
-                <div className='legend-name'>Custom Short Pants</div></div>
-                <div className='percentage'>9.0%</div>
+                <div className='legend-name'>Mama Earth</div></div>
+                <div className='percentage'>90%</div>
                 </div>
                 <div className='legend-space'>
               <div className='legend-3'>
-                <div><Red/></div>
-                <div className='legend-name'>Super Hoodies</div></div>
-                <div className='percentage'>45.2%</div>
+                <div><Red color='#c966cc'/></div>
+                <div className='legend-name'>Attitude</div></div>
+                <div className='percentage'>85.2%</div>
+                </div>
+                <div className='legend-space'>
+              <div className='legend-3'>
+                <div><Red color='#cc6670'/></div>
+                <div className='legend-name'>Dove</div></div>
+                <div className='percentage'>32%</div>
                 </div>
             </div>
+            
             </div>
            
           </div>
           <div className="schedule-container">
             <div className="top-bar-box">
-              <h2 className="today-heading">Today's schedule</h2>
+              <h2 className="today-heading">Product Sales</h2>
               <div className="see-all">
                 See All{" "}
                 <div className="Rarrow">
@@ -425,35 +429,32 @@ function Dashboard(props) {
             </div>
             <div className="schedules">
             <Chart
-              options={Pieoptions}
-              series={Pieoptions.series}
+              options={Baroptions}
+              series={Baroptions.series}
               type="bar"
-              height="200"
-              width="230"
+              height="300"
+              width="400"
             />
-              {/* <div className="address1">
-                <div className="rectangle1"></div>
-                <div className="schedule-content">
-
-                  <div className="font">
-                    Meeting with suppliers from Kutta Bali
-                  </div>
-                  <div className="timings">14.00-15.00</div>
-                  <div className="location">At Sunset Road ,Kutta ,Bali</div>
-                </div>
-              </div>
-              <div className="address1">
-                <div className="rectangle2"></div>
-                <div className="schedule-content">
-                  <div className="font">Check operation at Giga Factory 1</div>
-                  <div className="timings">16.00-18.00</div>
-                  <div className="location">at Central Jakarta</div>
-                </div>
-              </div> */}
+           
               
             </div>
           </div>
           
+        </div>
+        <div className="line-chart-container">
+          <div className="activities">Product Usage</div>
+          <div className="calender">
+            May - June 2021{" "}
+            <div className="Darrow">
+              <Darrow />
+            </div>
+          </div>
+          <Chart
+            options={data.options}
+            series={data.series}
+            type="line"
+            height={350}
+          />
         </div>
       </div>
     </div>

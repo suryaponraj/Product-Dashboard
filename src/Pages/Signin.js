@@ -47,9 +47,9 @@ function Signin(){
 		
         <div className="main-div">
 			
-            <div className="left-div">
-            <h2 className="heading"> Board.</h2>
-            </div>
+            {/* <div className="left-div">
+            <h2 className="heading"> Product .</h2>
+            </div> */}
             <div className="right-div">
             <div className='sign-in-box'>
 						<div className='right-box'>

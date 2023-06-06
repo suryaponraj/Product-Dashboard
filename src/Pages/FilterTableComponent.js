@@ -20,7 +20,8 @@ function GlobalFilter({
 
     return (
         <span style={{fontWeight:600 , display:'flex',flexDirection:'row' , alignItems:'center'}}>
-            <div style={{padding:'6px', fontSize:'20px' , color:'light-grey'}}>Filter:{' '}</div>
+            <div style={{padding:'6px' ,fontSize:'24px' ,fontFamily: 'cursive',
+    color: 'white'}}>Filter:{' '}</div>
             <input
               style={{height:'30px'}}
                 className="form-control"
@@ -84,7 +85,8 @@ function Table({ columns, data }) {
     return (
         <div >
             <div className='products'>
-            <div style={{fontWeight: '700px', fontSize:'20px' }}> <strong>Product Details</strong></div>
+            <div style={{fontWeight: '700px', fontSize:'24px' ,fontFamily: 'cursive',
+    color: 'white'}}> <strong>Product Details</strong></div>
             <div className="filter">
             <GlobalFilter
                 preGlobalFilteredRows={preGlobalFilteredRows}
@@ -116,6 +118,12 @@ function Table({ columns, data }) {
                             </tr>
                         )
                     })}
+                    {
+                        rows.length===0 && <tr><td style={{width:'100%', textAlign:'center'}}>No Data Available</td>
+                        <td></td>
+                        <td></td> <td></td> <td></td> <td></td>
+                        </tr>
+                    }
                 </tbody>
             </table>
             <br />

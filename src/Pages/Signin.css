@@ -21,10 +21,12 @@
 
 .left-div {
   display: flex;
-  width: 30%;
+  width: 35%;
   justify-content: center;
   align-items: center;
-  background-color: rgb(13, 130, 162);
+  background-color: rgb(255, 108, 243); /* For browsers that do not support gradients */
+  background-image: linear-gradient(rgb(173 160 207), rgb(255 255 114 / 47%));
+  /* background-color: rgb(13, 130, 162); */
 }
 
 .main-div {
@@ -32,6 +34,7 @@
   flex-direction: row;
   height: 100vh;
   max-height: 100%;
+  
 }
 
 .p {
@@ -46,12 +49,14 @@
   justify-content: center;
   color: #ffff;
   font-size: 50px;
-  font-family: "Montserrat", sans-serif;
+  font-family: cursive;
 }
 
 .right-div {
-  background-color: #e3e5e6;
-  width: 70%;
+  background-color: rgb(255, 108, 243); /* For browsers that do not support gradients */
+  background-image: linear-gradient(rgb(173 160 207), rgb(255 255 114 / 47%));
+  /* background-color: #e3e5e6; */
+  width: 100%;
 }
 
 .heading {
@@ -190,6 +195,7 @@ h4 {
 }
 
 .body2 {
+  padding:3px;
   text-align: center;
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -197,7 +203,7 @@ h4 {
 }
 
 .Si {
-  font-family: "Montserrat", sans-serif;
+  font-family: cursive;
   font-weight: 700;
   font-size: 36px;
 }
@@ -207,7 +213,7 @@ h4 {
   text-align: center !important;
 
   height: 30px !important;
-  width: 180px !important;
+  width: 190px !important;
 
   border-radius: 10px !important;
   /* background: none !important; */
