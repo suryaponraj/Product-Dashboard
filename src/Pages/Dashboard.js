@@ -33,6 +33,8 @@ function Dashboard(props) {
   const [pieData, setData] = useState([]);
   const [lineData1, setlineData1] = useState([]);
   const [lineData2, setlineData2] = useState([]);
+  const [lineData3, setlineData3] = useState([]);
+  const [lineData4, setlineData4] = useState([]);
   const LineDatas = [];
   const LineDataLabels = [
     "Week1",
@@ -58,7 +60,7 @@ function Dashboard(props) {
             population: country.population,
           }))
           .sort((a, b) => b.population - a.population)
-          .slice(0, 3);
+          .slice(0, 4);
         setData(filteredData);
         const filteredData1 = response.data
           .filter((country) =>
@@ -85,6 +87,30 @@ function Dashboard(props) {
           .slice(3, 9);
         console.log(filteredData2);
         setlineData2(filteredData2);
+        const filteredData3 = response.data
+          .filter((country) =>
+            ["European Union", "Armenia", "Austria"].includes(country.region)
+          )
+          .map((country) => ({
+            name: country.name,
+            population: country.population,
+            area: country.area,
+          }))
+          .sort((a, b) => 10000 - a.population)
+          .slice(1, 7);
+        setlineData3(filteredData3);
+        const filteredData4 = response.data
+          .filter((country) =>
+            ["European Union", "Armenia", "Austria"].includes(country.region)
+          )
+          .map((country) => ({
+            name: country.name,
+            population: country.population,
+            area: country.area,
+          }))
+          .sort((a, b) => 10000 - a.population)
+          .slice(1, 7);
+        setlineData4(filteredData4);
         LineDatas.push(filteredData1);
         LineDatas.push(filteredData2);
       })
@@ -126,22 +152,30 @@ function Dashboard(props) {
     },
     
 
-    colors: ["#98D89E", "#EE8484", "#F6DC7D"],
+    colors: ["#98D89E", "#EE8484", "#F6DC7D", "#EF9484"],
     series: pieData.map((country) => country.population),
-    labels: ["Basic Tees", "Super Hoodies ", "Custom Short Pants"],
+    labels: ["Himalayas", "Mama Earth ", "Dove" ,"Attitude"],
     //pieData.map(country => country.name)
   };
 
   const data = {
     series: [
       {
-        name: "Guest",
+        name: "Himalayas",
         data: lineData1.map((country) => country.area),
       },
       {
-        name: "User",
+        name: "Mama Earth",
         data: lineData2.map((country) => country.area),
       },
+      {
+        name: "Attitude",
+        data: lineData3.map((country) => country.area),
+      },
+      {
+        name: "Dove",
+        data: lineData4.map((country) => country.area),
+      }
     ],
 
     //  [
@@ -393,7 +427,7 @@ function Dashboard(props) {
             <Chart
               options={Pieoptions}
               series={Pieoptions.series}
-              type="pie"
+              type="bar"
               height="200"
               width="230"
             />
